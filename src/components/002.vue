@@ -3,7 +3,10 @@
     <h3>名称:{{name}}</h3>
     <h3>年龄:{{age}}</h3>
     <h3>位置:{{base}}</h3>
-    <h3>国家:{{obj.contunry}}</h3>
+    <h3>国家:{{obj.country}}</h3>
+    <div v-for="(item,index) in arr" :key="index">
+      <p>都督: {{item.dudu}}</p>
+    </div>
     <hr>
     <button @click="editName">修改名称</button>
   </div>
@@ -19,10 +22,18 @@ export default {
     const name = ref("孙权")
     const age = 50
     const base="江东"
-    const obj = {
-      contunry: "吴国",
+    const obj = ref({
+      country: "吴国",
       name: "孙大帝"
-    }
+    })
+    // 数组类型
+    const arr = ref(
+        [
+          {
+            dudu:"周瑜"
+          }
+        ]
+    )
     // 定义修改名称函数
     const editName = () => {
       // 控制台打印函数
@@ -52,12 +63,22 @@ export default {
       // 通过对value的调用,修改其值
       name.value = "刘备"
       console.log(name)
+      // 打印 通过ref 管理的对象数据,数据的value是一个proxy
+      // 此时通过修改obj.country是无法修改的
+      // 需要通过obj.value.country修改
+      // console.log(obj)
+      obj.value.country = "江东六郡"
+      console.log(obj.value.country)
+
+      // 修改数组对象信息
+      arr.value[0].dudu="陆逊"
     }
     return {
       name,
       age,
       base,
       obj,
+      arr,
       editName,
     }
   }
