@@ -45,7 +45,7 @@ export default {
     // 进入页面立即监听,{immediate:true}
     watch(()=>p3.age.size,(newValue,oldValue)=>{
       console.log("newValue:",newValue,"oldValue:",oldValue)
-    },{immediate:true})3.age.size++
+    },{immediate:true})
 
     return {
       p1,
