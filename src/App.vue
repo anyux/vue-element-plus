@@ -13,7 +13,8 @@
 // import HelloWorld from './components/008.vue'
 // import HelloWorld from './components/009.vue'
 // import HelloWorld from './components/010_parent_01.vue'
-import HelloWorld from './components/010_parent_02.vue'
+// import HelloWorld from './components/010_parent_02.vue'
+import HelloWorld from './components/011vuex.vue'
 
 export default {
   name: 'App',

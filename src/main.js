@@ -1,5 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// 导入数据仓库,默认会导入./store/index.js下的export default dataStore
+import store from './store'
+
 
 
 // 应用vue控制台告警
@@ -7,4 +10,7 @@ import App from './App.vue'
 window.__VUE_PROD_DEVTOOLS__ = false;
 window.__VUE_PROD_HYDRATION_MISMATCH_DETAILS__ = false;
 
-createApp(App).mount('#app')
+// 使用vuex store
+createApp(App)
+    .use(store)
+    .mount('#app')
